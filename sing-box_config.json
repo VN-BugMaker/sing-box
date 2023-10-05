@@ -2,6 +2,8 @@
   "inbounds": [
     {
       "type": "vless",
+      "sniff":true,
+      "sniff_override_destination":true,
       "domain_strategy": "ipv4_only",
       "users": [
         {
