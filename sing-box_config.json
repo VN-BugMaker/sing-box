@@ -5,7 +5,7 @@
       "domain_strategy": "ipv4_only",
       "users": [
         {
-          "uuid": "E66E8785-9284-493D-BF48-8232AA3686EA",
+          "uuid": "REPLACE_UUID",
           "flow": "xtls-rprx-vision"
         }
       ],
@@ -18,9 +18,9 @@
             "server": "dl.kgvn.garenanow.com",
             "server_port": 443
           },
-          "private_key": "qAdSu-xtsEOlP-xfysiAdiU-NxUBWmxZ63OOnTEMFFk",
+          "private_key": "REPLACE_PRIVATE_KEY",
           "short_id": [
-            "6ba85179e30d4fc2"
+            "REPLACE_SHORT_ID"
           ]
         }
       }
