@@ -43,6 +43,12 @@ installScript() {
 
     curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box.service && systemctl daemon-reload
 
+    sed "s/REPLACE_UUID/$(getUuid)/g" /root/sing-box_config.json > /root/sing-box_config.json.tmp
+    sed "s/REPLACE_PRIVATE_KEY/$(getPrivateKey)/g" /root/sing-box_config.json.tmp > /root/sing-box_config.json2.tmp
+    sed "s/REPLACE_SHORT_ID/$(getShortId)/g" /root/sing-box_config.json2.tmp > /root/sing-box_config.json3.tmp
+    mv /root/sing-box_config.json3.tmp /root/sing-box_config.json
+    rm /root/sing-box_config.json.tmp /root/sing-box_config.json2.tmp
+
     /root/sing-box check -c sing-box_config.json
 
     systemctl enable --now sing-box && sleep 0.2 && systemctl status sing-box
