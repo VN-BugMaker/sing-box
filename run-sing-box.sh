@@ -5,7 +5,7 @@ helpScript() {
 }
 
 getIpAddress(){
-  hostname -I
+  curl -s https://api.ipify.org || curl -s https://ipv4.icanhazip.com
 }
 
 install_packages() {
@@ -32,20 +32,20 @@ installScript() {
     install_packages
 
     touch default_port.txt
-    echo "1445" > default_port.txt
+    echo "443" > default_port.txt
     touch default_sni.txt
-    echo "www.speedtest.net" > default_sni.txt
+    echo "dl.kgvn.garenanow.com" > default_sni.txt
  
 
-    curl -Lo /root/sb https://github.com/SagerNet/sing-box/releases/download/v1.3.0/sing-box-1.3.0-linux-amd64.tar.gz && tar -xzf /root/sb && cp -f /root/sing-box-*/sing-box /root && rm -r /root/sb /root/sing-box-* && chown root:root /root/sing-box && chmod +x /root/sing-box
+    curl -Lo /root/sb https://github.com/SagerNet/sing-box/releases/download/v1.5.1/sing-box-1.5.1-linux-amd64.tar.gz && tar -xzf /root/sb && cp -f /root/sing-box-*/sing-box /root && rm -r /root/sb /root/sing-box-* && chown root:root /root/sing-box && chmod +x /root/sing-box
 
-   curl -Lo /root/sing-box_config.json https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box_config.json
+    curl -Lo /root/sing-box_config.json https://raw.githubusercontent.com/VN-BugMaker/sing-box/main/sing-box_config.json
 
-   curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box.service && systemctl daemon-reload
+    curl -Lo /etc/systemd/system/sing-box.service https://raw.githubusercontent.com/iSegaro/Sing-Box/main/sing-box.service && systemctl daemon-reload
 
-   /root/sing-box check -c sing-box_config.json
+    /root/sing-box check -c sing-box_config.json
 
-   systemctl enable --now sing-box && sleep 0.2 && systemctl status sing-box
+    systemctl enable --now sing-box && sleep 0.2 && systemctl status sing-box
 
    
 }
