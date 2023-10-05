@@ -1,0 +1,39 @@
+{
+  "inbounds": [
+    {
+      "type": "vless",
+      "domain_strategy": "ipv4_only",
+      "users": [
+        {
+          "uuid": "E66E8785-9284-493D-BF48-8232AA3686EA",
+          "flow": "xtls-rprx-vision"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "dl.kgvn.garenanow.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "dl.kgvn.garenanow.com",
+            "server_port": 443
+          },
+          "private_key": "qAdSu-xtsEOlP-xfysiAdiU-NxUBWmxZ63OOnTEMFFk",
+          "short_id": [
+            "6ba85179e30d4fc2"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
